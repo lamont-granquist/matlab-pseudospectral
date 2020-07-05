@@ -208,7 +208,7 @@ classdef Launch < handle
             phases(p).bounds.finalstate.lower   = [ -inf*ones(1,6) stages(s).mf ];
             phases(p).bounds.finalstate.upper   = [ inf*ones(1,6) stages(s).m0 ];
           end
-          phases(p).bounds.control.lower      = [ umin 0 ]; % set to 0 to allow throttle down
+          phases(p).bounds.control.lower      = [ umin 1 ]; % set to 0 to allow throttle down
           phases(p).bounds.control.upper      = [ umax 1 ];
           phases(p).bounds.path.lower         = [ 0 ];
           phases(p).bounds.path.upper         = [ 0 ];
@@ -553,6 +553,7 @@ classdef Launch < handle
         rho = rho0.*exp(-h/H);
         D = - rho*Aref*Cd.*vsurfm.*vsurf/2;
         Tp = p0.*exp(-h/H) * Ae;
+        Tp = 0;
 
 %        Q = rho.*vsurfm2/2;
 

@@ -1,9 +1,9 @@
 close all; clear classes; clc;
-format shortG;
+format longG;
 format compact;
 
 K = 1; % h steps
-M = 12; % p steps
+M = 20; % p steps
 
 body = Body.Earth();
 
